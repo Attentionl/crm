@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!-- mybatis-generator的核心配置文件 -->
+<generatorConfiguration>
+
+    <classPathEntry
+            location="D:\briupsoft\maven_repositories\mysql\mysql-connector-java\8.0.18\mysql-connector-java-8.0.18.jar"/>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/crm?serverTimezone=UTC"
+                        userId="briup"
+                        password="briup">
+            <!--产生selectByPrimaryKey-->
+            <property name="useInformationSchema" value="true"/>
+        </jdbcConnection>
+
+
+        <!--指定生成的类型为java类型，避免数据库中number等类型字段 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--自动生成的实体的存放包路径 -->
+        <javaModelGenerator targetPackage="com.sxdx.basic.bean" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--自动生成的*Mapper.xml文件存放路径 -->
+        <sqlMapGenerator targetPackage="com.sxdx.basic.mapper" targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!--自动生成的*Mapper.java存放路径 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.sxdx.basic.mapper" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <table tableName="account" domainObjectName="ccount"></table>
+        <table tableName="afterSaleFollow" domainObjectName="AfterSaleFollow"></table>
+        <table tableName="constract" domainObjectName="Constract"></table>
+        <table tableName="cusGrade" domainObjectName="CusGrade"></table>
+        <table tableName="cusSource" domainObjectName="CusSource"></table>
+        <table tableName="cusState" domainObjectName="CusState"></table>
+        <table tableName="customer" domainObjectName="Customer"></table>
+        <table tableName="department" domainObjectName="Department"></table>
+        <table tableName="duty" domainObjectName="Duty"></table>
+        <table tableName="employee" domainObjectName="Employee"></table>
+        <table tableName="follow" domainObjectName="Follow"></table>
+        <table tableName="notice" domainObjectName="Notice"></table>
+        <table tableName="orderform" domainObjectName="Orderform"></table>
+        <table tableName="position" domainObjectName="Position"></table>
+        <table tableName="produceFollow" domainObjectName="ProduceFollow"></table>
+        <table tableName="product" domainObjectName="Product"></table>
+        <table tableName="receipt" domainObjectName="Receipt"></table>
+        <table tableName="receivadles" domainObjectName="Receivadles"></table>
+        <table tableName="refund" domainObjectName="Refund"></table>
+        <table tableName="salary" domainObjectName="Salary"></table>
+        <table tableName="saleFollow" domainObjectName="SaleFollow"></table>
+        <table tableName="stock" domainObjectName="Stock"></table>
+
+
+        <!--
+         mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
+        -->
+
+    </context>
+</generatorConfiguration>

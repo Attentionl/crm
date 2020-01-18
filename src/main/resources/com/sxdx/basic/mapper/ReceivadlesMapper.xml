@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxdx.basic.mapper.ReceivadlesMapper">
+  <resultMap id="BaseResultMap" type="com.sxdx.basic.bean.Receivadles">
+    <id column="receivablesId" jdbcType="INTEGER" property="receivablesid" />
+    <result column="contractId" jdbcType="INTEGER" property="contractid" />
+    <result column="amountReceivable" jdbcType="REAL" property="amountreceivable" />
+    <result column="receivableTime" jdbcType="TIMESTAMP" property="receivabletime" />
+    <result column="amountReceived" jdbcType="REAL" property="amountreceived" />
+    <result column="uncollectedAmount" jdbcType="REAL" property="uncollectedamount" />
+    <result column="createrId" jdbcType="INTEGER" property="createrid" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="paymentReminder" jdbcType="VARCHAR" property="paymentreminder" />
+    <result column="reminderId" jdbcType="INTEGER" property="reminderid" />
+    <result column="extraReminderId" jdbcType="INTEGER" property="extrareminderid" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    receivablesId, contractId, amountReceivable, receivableTime, amountReceived, uncollectedAmount, 
+    createrId, createTime, paymentReminder, reminderId, extraReminderId, remark
+  </sql>
+  <select id="selectByExample" parameterType="com.sxdx.basic.bean.ReceivadlesExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from receivadles
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from receivadles
+    where receivablesId = #{receivablesid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from receivadles
+    where receivablesId = #{receivablesid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sxdx.basic.bean.ReceivadlesExample">
+    delete from receivadles
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sxdx.basic.bean.Receivadles">
+    insert into receivadles (receivablesId, contractId, amountReceivable, 
+      receivableTime, amountReceived, uncollectedAmount, 
+      createrId, createTime, paymentReminder, 
+      reminderId, extraReminderId, remark
+      )
+    values (#{receivablesid,jdbcType=INTEGER}, #{contractid,jdbcType=INTEGER}, #{amountreceivable,jdbcType=REAL}, 
+      #{receivabletime,jdbcType=TIMESTAMP}, #{amountreceived,jdbcType=REAL}, #{uncollectedamount,jdbcType=REAL}, 
+      #{createrid,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{paymentreminder,jdbcType=VARCHAR}, 
+      #{reminderid,jdbcType=INTEGER}, #{extrareminderid,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxdx.basic.bean.Receivadles">
+    insert into receivadles
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="receivablesid != null">
+        receivablesId,
+      </if>
+      <if test="contractid != null">
+        contractId,
+      </if>
+      <if test="amountreceivable != null">
+        amountReceivable,
+      </if>
+      <if test="receivabletime != null">
+        receivableTime,
+      </if>
+      <if test="amountreceived != null">
+        amountReceived,
+      </if>
+      <if test="uncollectedamount != null">
+        uncollectedAmount,
+      </if>
+      <if test="createrid != null">
+        createrId,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="paymentreminder != null">
+        paymentReminder,
+      </if>
+      <if test="reminderid != null">
+        reminderId,
+      </if>
+      <if test="extrareminderid != null">
+        extraReminderId,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="receivablesid != null">
+        #{receivablesid,jdbcType=INTEGER},
+      </if>
+      <if test="contractid != null">
+        #{contractid,jdbcType=INTEGER},
+      </if>
+      <if test="amountreceivable != null">
+        #{amountreceivable,jdbcType=REAL},
+      </if>
+      <if test="receivabletime != null">
+        #{receivabletime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="amountreceived != null">
+        #{amountreceived,jdbcType=REAL},
+      </if>
+      <if test="uncollectedamount != null">
+        #{uncollectedamount,jdbcType=REAL},
+      </if>
+      <if test="createrid != null">
+        #{createrid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymentreminder != null">
+        #{paymentreminder,jdbcType=VARCHAR},
+      </if>
+      <if test="reminderid != null">
+        #{reminderid,jdbcType=INTEGER},
+      </if>
+      <if test="extrareminderid != null">
+        #{extrareminderid,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sxdx.basic.bean.ReceivadlesExample" resultType="java.lang.Long">
+    select count(*) from receivadles
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update receivadles
+    <set>
+      <if test="record.receivablesid != null">
+        receivablesId = #{record.receivablesid,jdbcType=INTEGER},
+      </if>
+      <if test="record.contractid != null">
+        contractId = #{record.contractid,jdbcType=INTEGER},
+      </if>
+      <if test="record.amountreceivable != null">
+        amountReceivable = #{record.amountreceivable,jdbcType=REAL},
+      </if>
+      <if test="record.receivabletime != null">
+        receivableTime = #{record.receivabletime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.amountreceived != null">
+        amountReceived = #{record.amountreceived,jdbcType=REAL},
+      </if>
+      <if test="record.uncollectedamount != null">
+        uncollectedAmount = #{record.uncollectedamount,jdbcType=REAL},
+      </if>
+      <if test="record.createrid != null">
+        createrId = #{record.createrid,jdbcType=INTEGER},
+      </if>
+      <if test="record.createtime != null">
+        createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.paymentreminder != null">
+        paymentReminder = #{record.paymentreminder,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reminderid != null">
+        reminderId = #{record.reminderid,jdbcType=INTEGER},
+      </if>
+      <if test="record.extrareminderid != null">
+        extraReminderId = #{record.extrareminderid,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update receivadles
+    set receivablesId = #{record.receivablesid,jdbcType=INTEGER},
+      contractId = #{record.contractid,jdbcType=INTEGER},
+      amountReceivable = #{record.amountreceivable,jdbcType=REAL},
+      receivableTime = #{record.receivabletime,jdbcType=TIMESTAMP},
+      amountReceived = #{record.amountreceived,jdbcType=REAL},
+      uncollectedAmount = #{record.uncollectedamount,jdbcType=REAL},
+      createrId = #{record.createrid,jdbcType=INTEGER},
+      createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      paymentReminder = #{record.paymentreminder,jdbcType=VARCHAR},
+      reminderId = #{record.reminderid,jdbcType=INTEGER},
+      extraReminderId = #{record.extrareminderid,jdbcType=INTEGER},
+      remark = #{record.remark,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxdx.basic.bean.Receivadles">
+    update receivadles
+    <set>
+      <if test="contractid != null">
+        contractId = #{contractid,jdbcType=INTEGER},
+      </if>
+      <if test="amountreceivable != null">
+        amountReceivable = #{amountreceivable,jdbcType=REAL},
+      </if>
+      <if test="receivabletime != null">
+        receivableTime = #{receivabletime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="amountreceived != null">
+        amountReceived = #{amountreceived,jdbcType=REAL},
+      </if>
+      <if test="uncollectedamount != null">
+        uncollectedAmount = #{uncollectedamount,jdbcType=REAL},
+      </if>
+      <if test="createrid != null">
+        createrId = #{createrid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymentreminder != null">
+        paymentReminder = #{paymentreminder,jdbcType=VARCHAR},
+      </if>
+      <if test="reminderid != null">
+        reminderId = #{reminderid,jdbcType=INTEGER},
+      </if>
+      <if test="extrareminderid != null">
+        extraReminderId = #{extrareminderid,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where receivablesId = #{receivablesid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxdx.basic.bean.Receivadles">
+    update receivadles
+    set contractId = #{contractid,jdbcType=INTEGER},
+      amountReceivable = #{amountreceivable,jdbcType=REAL},
+      receivableTime = #{receivabletime,jdbcType=TIMESTAMP},
+      amountReceived = #{amountreceived,jdbcType=REAL},
+      uncollectedAmount = #{uncollectedamount,jdbcType=REAL},
+      createrId = #{createrid,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      paymentReminder = #{paymentreminder,jdbcType=VARCHAR},
+      reminderId = #{reminderid,jdbcType=INTEGER},
+      extraReminderId = #{extrareminderid,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR}
+    where receivablesId = #{receivablesid,jdbcType=INTEGER}
+  </update>
+</mapper>

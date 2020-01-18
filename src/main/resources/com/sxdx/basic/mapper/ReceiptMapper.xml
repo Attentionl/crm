@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxdx.basic.mapper.ReceiptMapper">
+  <resultMap id="BaseResultMap" type="com.sxdx.basic.bean.Receipt">
+    <id column="receiptId" jdbcType="INTEGER" property="receiptid" />
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="refundId" jdbcType="INTEGER" property="refundid" />
+    <result column="receiptType" jdbcType="VARCHAR" property="receipttype" />
+    <result column="receiptAmount" jdbcType="REAL" property="receiptamount" />
+    <result column="receiptDate" jdbcType="TIMESTAMP" property="receiptdate" />
+    <result column="createrId" jdbcType="INTEGER" property="createrid" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    receiptId, id, refundId, receiptType, receiptAmount, receiptDate, createrId, createTime, 
+    remark
+  </sql>
+  <select id="selectByExample" parameterType="com.sxdx.basic.bean.ReceiptExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from receipt
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from receipt
+    where receiptId = #{receiptid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from receipt
+    where receiptId = #{receiptid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sxdx.basic.bean.ReceiptExample">
+    delete from receipt
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sxdx.basic.bean.Receipt">
+    insert into receipt (receiptId, id, refundId, 
+      receiptType, receiptAmount, receiptDate, 
+      createrId, createTime, remark
+      )
+    values (#{receiptid,jdbcType=INTEGER}, #{id,jdbcType=INTEGER}, #{refundid,jdbcType=INTEGER}, 
+      #{receipttype,jdbcType=VARCHAR}, #{receiptamount,jdbcType=REAL}, #{receiptdate,jdbcType=TIMESTAMP}, 
+      #{createrid,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxdx.basic.bean.Receipt">
+    insert into receipt
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="receiptid != null">
+        receiptId,
+      </if>
+      <if test="id != null">
+        id,
+      </if>
+      <if test="refundid != null">
+        refundId,
+      </if>
+      <if test="receipttype != null">
+        receiptType,
+      </if>
+      <if test="receiptamount != null">
+        receiptAmount,
+      </if>
+      <if test="receiptdate != null">
+        receiptDate,
+      </if>
+      <if test="createrid != null">
+        createrId,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="receiptid != null">
+        #{receiptid,jdbcType=INTEGER},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="refundid != null">
+        #{refundid,jdbcType=INTEGER},
+      </if>
+      <if test="receipttype != null">
+        #{receipttype,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptamount != null">
+        #{receiptamount,jdbcType=REAL},
+      </if>
+      <if test="receiptdate != null">
+        #{receiptdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createrid != null">
+        #{createrid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sxdx.basic.bean.ReceiptExample" resultType="java.lang.Long">
+    select count(*) from receipt
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update receipt
+    <set>
+      <if test="record.receiptid != null">
+        receiptId = #{record.receiptid,jdbcType=INTEGER},
+      </if>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.refundid != null">
+        refundId = #{record.refundid,jdbcType=INTEGER},
+      </if>
+      <if test="record.receipttype != null">
+        receiptType = #{record.receipttype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiptamount != null">
+        receiptAmount = #{record.receiptamount,jdbcType=REAL},
+      </if>
+      <if test="record.receiptdate != null">
+        receiptDate = #{record.receiptdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createrid != null">
+        createrId = #{record.createrid,jdbcType=INTEGER},
+      </if>
+      <if test="record.createtime != null">
+        createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update receipt
+    set receiptId = #{record.receiptid,jdbcType=INTEGER},
+      id = #{record.id,jdbcType=INTEGER},
+      refundId = #{record.refundid,jdbcType=INTEGER},
+      receiptType = #{record.receipttype,jdbcType=VARCHAR},
+      receiptAmount = #{record.receiptamount,jdbcType=REAL},
+      receiptDate = #{record.receiptdate,jdbcType=TIMESTAMP},
+      createrId = #{record.createrid,jdbcType=INTEGER},
+      createTime = #{record.createtime,jdbcType=TIMESTAMP},
+      remark = #{record.remark,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxdx.basic.bean.Receipt">
+    update receipt
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="refundid != null">
+        refundId = #{refundid,jdbcType=INTEGER},
+      </if>
+      <if test="receipttype != null">
+        receiptType = #{receipttype,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptamount != null">
+        receiptAmount = #{receiptamount,jdbcType=REAL},
+      </if>
+      <if test="receiptdate != null">
+        receiptDate = #{receiptdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createrid != null">
+        createrId = #{createrid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where receiptId = #{receiptid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxdx.basic.bean.Receipt">
+    update receipt
+    set id = #{id,jdbcType=INTEGER},
+      refundId = #{refundid,jdbcType=INTEGER},
+      receiptType = #{receipttype,jdbcType=VARCHAR},
+      receiptAmount = #{receiptamount,jdbcType=REAL},
+      receiptDate = #{receiptdate,jdbcType=TIMESTAMP},
+      createrId = #{createrid,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where receiptId = #{receiptid,jdbcType=INTEGER}
+  </update>
+</mapper>
