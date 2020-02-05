@@ -44,7 +44,7 @@
         </javaClientGenerator>
 
 
-        <table tableName="account" domainObjectName="ccount"></table>
+        <table tableName="account" domainObjectName="Account"></table>
         <table tableName="afterSaleFollow" domainObjectName="AfterSaleFollow"></table>
         <table tableName="constract" domainObjectName="Constract"></table>
         <table tableName="cusGrade" domainObjectName="CusGrade"></table>
