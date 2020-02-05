@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxdx.basic.mapper.EmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.sxdx.basic.bean.Employee">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="education" jdbcType="VARCHAR" property="education" />
+    <result column="nation" jdbcType="VARCHAR" property="nation" />
+    <result column="marriage" jdbcType="VARCHAR" property="marriage" />
+    <result column="cardId" jdbcType="CHAR" property="cardid" />
+    <result column="tel" jdbcType="CHAR" property="tel" />
+    <result column="postionId" jdbcType="INTEGER" property="postionid" />
+    <result column="deptId" jdbcType="INTEGER" property="deptid" />
+    <result column="dutyId" jdbcType="INTEGER" property="dutyid" />
+    <result column="salaryId" jdbcType="INTEGER" property="salaryid" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, name, sex, address, education, nation, marriage, cardId, tel, postionId, deptId, 
+    dutyId, salaryId
+  </sql>
+  <select id="selectByExample" parameterType="com.sxdx.basic.bean.EmployeeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from employee
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sxdx.basic.bean.EmployeeExample">
+    delete from employee
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sxdx.basic.bean.Employee">
+    insert into employee (id, name, sex, address, 
+      education, nation, marriage, 
+      cardId, tel, postionId, deptId, 
+      dutyId, salaryId)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, #{address,jdbcType=VARCHAR}, 
+      #{education,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{marriage,jdbcType=VARCHAR}, 
+      #{cardid,jdbcType=CHAR}, #{tel,jdbcType=CHAR}, #{postionid,jdbcType=INTEGER}, #{deptid,jdbcType=INTEGER}, 
+      #{dutyid,jdbcType=INTEGER}, #{salaryid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxdx.basic.bean.Employee">
+    insert into employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="nation != null">
+        nation,
+      </if>
+      <if test="marriage != null">
+        marriage,
+      </if>
+      <if test="cardid != null">
+        cardId,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="postionid != null">
+        postionId,
+      </if>
+      <if test="deptid != null">
+        deptId,
+      </if>
+      <if test="dutyid != null">
+        dutyId,
+      </if>
+      <if test="salaryid != null">
+        salaryId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="marriage != null">
+        #{marriage,jdbcType=VARCHAR},
+      </if>
+      <if test="cardid != null">
+        #{cardid,jdbcType=CHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=CHAR},
+      </if>
+      <if test="postionid != null">
+        #{postionid,jdbcType=INTEGER},
+      </if>
+      <if test="deptid != null">
+        #{deptid,jdbcType=INTEGER},
+      </if>
+      <if test="dutyid != null">
+        #{dutyid,jdbcType=INTEGER},
+      </if>
+      <if test="salaryid != null">
+        #{salaryid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sxdx.basic.bean.EmployeeExample" resultType="java.lang.Long">
+    select count(*) from employee
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update employee
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null">
+        sex = #{record.sex,jdbcType=CHAR},
+      </if>
+      <if test="record.address != null">
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.education != null">
+        education = #{record.education,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nation != null">
+        nation = #{record.nation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marriage != null">
+        marriage = #{record.marriage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardid != null">
+        cardId = #{record.cardid,jdbcType=CHAR},
+      </if>
+      <if test="record.tel != null">
+        tel = #{record.tel,jdbcType=CHAR},
+      </if>
+      <if test="record.postionid != null">
+        postionId = #{record.postionid,jdbcType=INTEGER},
+      </if>
+      <if test="record.deptid != null">
+        deptId = #{record.deptid,jdbcType=INTEGER},
+      </if>
+      <if test="record.dutyid != null">
+        dutyId = #{record.dutyid,jdbcType=INTEGER},
+      </if>
+      <if test="record.salaryid != null">
+        salaryId = #{record.salaryid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update employee
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=CHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      education = #{record.education,jdbcType=VARCHAR},
+      nation = #{record.nation,jdbcType=VARCHAR},
+      marriage = #{record.marriage,jdbcType=VARCHAR},
+      cardId = #{record.cardid,jdbcType=CHAR},
+      tel = #{record.tel,jdbcType=CHAR},
+      postionId = #{record.postionid,jdbcType=INTEGER},
+      deptId = #{record.deptid,jdbcType=INTEGER},
+      dutyId = #{record.dutyid,jdbcType=INTEGER},
+      salaryId = #{record.salaryid,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxdx.basic.bean.Employee">
+    update employee
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="marriage != null">
+        marriage = #{marriage,jdbcType=VARCHAR},
+      </if>
+      <if test="cardid != null">
+        cardId = #{cardid,jdbcType=CHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=CHAR},
+      </if>
+      <if test="postionid != null">
+        postionId = #{postionid,jdbcType=INTEGER},
+      </if>
+      <if test="deptid != null">
+        deptId = #{deptid,jdbcType=INTEGER},
+      </if>
+      <if test="dutyid != null">
+        dutyId = #{dutyid,jdbcType=INTEGER},
+      </if>
+      <if test="salaryid != null">
+        salaryId = #{salaryid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxdx.basic.bean.Employee">
+    update employee
+    set name = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=CHAR},
+      address = #{address,jdbcType=VARCHAR},
+      education = #{education,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      marriage = #{marriage,jdbcType=VARCHAR},
+      cardId = #{cardid,jdbcType=CHAR},
+      tel = #{tel,jdbcType=CHAR},
+      postionId = #{postionid,jdbcType=INTEGER},
+      deptId = #{deptid,jdbcType=INTEGER},
+      dutyId = #{dutyid,jdbcType=INTEGER},
+      salaryId = #{salaryid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
