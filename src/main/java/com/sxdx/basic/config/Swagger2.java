@@ -28,14 +28,14 @@ public class Swagger2 {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.apiInfo(apiInfo())
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.web"))
+				.apis(RequestHandlerSelectors.basePackage("com.sxdx"))
 				.paths(PathSelectors.any())
 				.build();
 	}
 	
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("毕设-CRM客户关系管理系统")
+				.title("毕设-CRM客户关系管理信息系统")
 				.description("山西大学，http://www.sxdx.com")
 				.termsOfServiceUrl("http://www.sxdx.com")
 				.version("1.0")
