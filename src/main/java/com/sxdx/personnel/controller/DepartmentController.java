@@ -4,6 +4,8 @@ import com.sxdx.basic.bean.Department;
 import com.sxdx.basic.utils.Message;
 import com.sxdx.basic.utils.MessageUtil;
 import com.sxdx.personnel.service.DepartmentService;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +26,7 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
     @PostMapping("addDepartment")
-    public Message addDepartment(Department department) {
+    public Message addDepartment(@ApiParam("部门对象") Department department) {
         int i = departmentService.addDepartment(department);
         if (i != 0) {
             //1代表成功
