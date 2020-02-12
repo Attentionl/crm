@@ -4,7 +4,6 @@ import com.sxdx.basic.bean.Position;
 import com.sxdx.basic.utils.Message;
 import com.sxdx.basic.utils.MessageUtil;
 import com.sxdx.personnel.service.PositionService;
-import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;

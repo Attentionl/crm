@@ -9,7 +9,6 @@ import org.mybatis.spring.annotation.MapperScan;
  * @date 2020-02-05T19:30:58+08:00
  */
 @SpringBootApplication
-@MapperScan(basePackages = "com.sxdx.basic.mapper")
 public class CrmApplication {
 
     public static void main(String[] args) {
