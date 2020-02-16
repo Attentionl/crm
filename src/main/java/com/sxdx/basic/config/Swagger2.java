@@ -143,7 +143,7 @@ public class Swagger2 {
                 .apiInfo(apiInfo())
                 .groupName("毕必成")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.sxdx"))
+                .apis(RequestHandlerSelectors.basePackage("com.sxdx.customer"))
                 .paths(PathSelectors.any())
                 .build();
     }

@@ -18,7 +18,7 @@ import java.util.List;
  * @description
  * @createdTime 2020/2/15 19:46
  */
-@RestController("constract")
+@RestController
 public class ConstractController {
 
    @Autowired
