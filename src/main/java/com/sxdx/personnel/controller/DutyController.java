@@ -36,7 +36,7 @@ public class DutyController {
      * @auther: 李今朝
      */
     @PostMapping("addDuty")
-    public Message addDuty(@RequestBody Duty duty) {
+    public Message addDuty(Duty duty) {
         int i = dutyService.addDuty(duty);
         if (i != 0) {
             return MessageUtil.success("添加岗位成功", "status", 1);
@@ -54,7 +54,7 @@ public class DutyController {
      * @auther: 李今朝
      */
     @PostMapping("deleteDutyById")
-    public Message deleteDutyById(@RequestBody int id) {
+    public Message deleteDutyById(int id) {
         int i = dutyService.deleteDutyById(id);
         if (i != 0) {
             return MessageUtil.success("删除岗位成功", "status", 1);
@@ -72,7 +72,7 @@ public class DutyController {
      * @auther: 李今朝
      */
     @PostMapping("updateDuty")
-    public Message updateDuty(@RequestBody Duty duty) {
+    public Message updateDuty(Duty duty) {
         int i = dutyService.updateDuty(duty);
         if (i != 0) {
             return MessageUtil.success("更新岗位成功", "status", 1);
@@ -107,7 +107,7 @@ public class DutyController {
      * @auther: 李今朝
      */
     @PostMapping("selectDutyById")
-    public Message selectDutyById(@RequestBody Integer id) {
+    public Message selectDutyById(Integer id) {
         Duty duty = dutyService.selectDutyById(id);
         if (duty != null) {
             return MessageUtil.success("查询岗位成功", "duty", duty);
