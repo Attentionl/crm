@@ -3,6 +3,7 @@ package com.sxdx.system.service.impl;
 import com.sxdx.basic.bean.Account;
 import com.sxdx.basic.bean.AccountExample;
 import com.sxdx.basic.mapper.AccountMapper;
+import com.sxdx.system.service.AccountService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
