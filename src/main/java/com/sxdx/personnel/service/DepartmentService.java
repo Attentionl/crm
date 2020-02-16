@@ -1,6 +1,7 @@
 package com.sxdx.personnel.service;
 
 import com.sxdx.basic.bean.Department;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * @version1.0 2020/2/6
  * @description 部门操作的服务层
  */
-
+@Service
 public interface DepartmentService {
     /**
      * 添加部门
