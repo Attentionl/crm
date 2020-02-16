@@ -1,26 +1,24 @@
-package com.sxdx.zw.controller;
+package com.sxdx.system.controller;
 
 import com.sxdx.basic.bean.Account;
 import com.sxdx.basic.utils.Message;
 import com.sxdx.basic.utils.MessageUtil;
-import com.sxdx.zw.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
  * @author zhangwei
- * @className accountController
+ * @className AccountController
  * @version1.0
  * @description
  * @createdTime 2020/2/15 19:45
  */
 @RestController("account")
-public class accountController {
+public class AccountController {
 
     @Autowired
     private AccountService accountService;

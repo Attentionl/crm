@@ -1,26 +1,25 @@
-package com.sxdx.zw.controller;
+package com.sxdx.orderAndConstract.controller;
 
 import com.sxdx.basic.bean.Constract;
 import com.sxdx.basic.utils.Message;
 import com.sxdx.basic.utils.MessageUtil;
-import com.sxdx.zw.service.ConstractService;
+import com.sxdx.orderAndConstract.service.ConstractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
  * @author zhangwei
- * @className constractController
+ * @className ConstractController
  * @version1.0
  * @description
  * @createdTime 2020/2/15 19:46
  */
 @RestController("constract")
-public class constractController {
+public class ConstractController {
 
    @Autowired
    private ConstractService constractService;

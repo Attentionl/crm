@@ -1,9 +1,9 @@
-package com.sxdx.zw.service.impl;
+package com.sxdx.orderAndConstract.service.impl;
 
 import com.sxdx.basic.bean.Orderform;
 import com.sxdx.basic.bean.OrderformExample;
 import com.sxdx.basic.mapper.OrderformMapper;
-import com.sxdx.zw.service.OrderformService;
+import com.sxdx.orderAndConstract.service.OrderformService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -1,9 +1,9 @@
-package com.sxdx.zw.service.impl;
+package com.sxdx.orderAndConstract.service.impl;
 
 import com.sxdx.basic.bean.Constract;
 import com.sxdx.basic.bean.ConstractExample;
 import com.sxdx.basic.mapper.ConstractMapper;
-import com.sxdx.zw.service.ConstractService;
+import com.sxdx.orderAndConstract.service.ConstractService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

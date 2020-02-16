@@ -1,15 +1,14 @@
-package com.sxdx.zw.controller;
+package com.sxdx.orderAndConstract.controller;
 
 import com.sxdx.basic.bean.Orderform;
 import com.sxdx.basic.utils.Message;
 import com.sxdx.basic.utils.MessageUtil;
-import com.sxdx.zw.service.OrderformService;
+import com.sxdx.orderAndConstract.service.OrderformService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -20,7 +19,7 @@ import java.util.List;
  * @createdTime 2020/2/15 19:36
  */
 @RestController("orderform")
-public class orderformController {
+public class OrderformController {
     @Autowired
     private OrderformService orderformService;
     //添加

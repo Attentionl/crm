@@ -1,7 +1,6 @@
-package com.sxdx.zw.service;
+package com.sxdx.system.service;
 
 import com.sxdx.basic.bean.Account;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

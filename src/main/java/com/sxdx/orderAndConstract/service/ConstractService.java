@@ -1,7 +1,7 @@
-package com.sxdx.zw.service;
+package com.sxdx.orderAndConstract.service;
 
 import com.sxdx.basic.bean.Constract;
-import org.springframework.stereotype.Service;
+
 import java.util.List;
 /**
  * @author 张伟
