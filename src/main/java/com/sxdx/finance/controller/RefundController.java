@@ -39,7 +39,7 @@ public class RefundController {
      * @date 2020/2/18 16:40
      */
     @ApiOperation(value = "查询所有回款信息")
-    @GetMapping("SelectAll")
+    @GetMapping("selectAll")
     public Message selectAll() {
         List<Refund> refunds = refundService.selectAll();
         return MessageUtil.success("查询成功", "refunds", refunds);

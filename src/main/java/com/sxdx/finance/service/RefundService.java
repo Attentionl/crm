@@ -1,6 +1,5 @@
 package com.sxdx.finance.service;
 
-import com.sxdx.basic.bean.Constract;
 import com.sxdx.basic.bean.Receivadles;
 import com.sxdx.basic.bean.Refund;
 import com.sxdx.basic.exception.CustomerException;
