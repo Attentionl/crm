@@ -4,6 +4,7 @@ import com.sxdx.basic.bean.Department;
 import com.sxdx.basic.utils.Message;
 import com.sxdx.basic.utils.MessageUtil;
 import com.sxdx.personnel.service.DepartmentService;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +36,7 @@ public class DepartmentController {
      * @date: 2020/2/7 20:58
      * @auther: 李今朝
      */
+    @ApiOperation(value = "添加部门信息")
     @PostMapping("addDepartment")
     public Message addDepartment(@ApiParam("部门对象") Department department) {
         int i = departmentService.addDepartment(department);
@@ -96,9 +98,9 @@ public class DepartmentController {
      * @auther: 李今朝
      */
     @GetMapping("selectAllDepartment")
-    public Message selectAllDepartment(){
+    public Message selectAllDepartment() {
         List<Department> departments = departmentService.selectAllDepartment();
-        return MessageUtil.success("查找部门全部信息成功","departments",departments);
+        return MessageUtil.success("查找部门全部信息成功", "departments", departments);
     }
 
 }
