@@ -107,7 +107,7 @@ public class Swagger2 {
                 .apiInfo(apiInfo())
                 .groupName("李康")
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.sxdx"))
+                .apis(RequestHandlerSelectors.basePackage("com.sxdx.announcementInformation" + splitor + "com.sxdx.productInformation"))
                 .paths(PathSelectors.any())
                 .build();
     }

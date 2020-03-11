@@ -5,6 +5,13 @@ import com.sxdx.basic.bean.ProductExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * @Program: crm
+ * @since: JDK 1.8
+ * @Description:
+ * @author: Likyeong
+ * @date: 2020/3/4 15:24
+ **/
 public interface ProductMapper {
     long countByExample(ProductExample example);
 

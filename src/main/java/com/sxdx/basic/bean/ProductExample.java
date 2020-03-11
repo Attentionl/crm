@@ -3,6 +3,13 @@ package com.sxdx.basic.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+*@Program: crm 
+*@since: JDK 1.8
+*@Description: 
+*@author: Likyeong
+*@date: 2020/3/4 15:24
+**/
 public class ProductExample {
     protected String orderByClause;
 
@@ -11,7 +18,7 @@ public class ProductExample {
     protected List<Criteria> oredCriteria;
 
     public ProductExample() {
-        oredCriteria = new ArrayList<Criteria>();
+        oredCriteria = new ArrayList<>();
     }
 
     public void setOrderByClause(String orderByClause) {
@@ -68,7 +75,7 @@ public class ProductExample {
 
         protected GeneratedCriteria() {
             super();
-            criteria = new ArrayList<Criterion>();
+            criteria = new ArrayList<>();
         }
 
         public boolean isValid() {
@@ -225,72 +232,72 @@ public class ProductExample {
         }
 
         public Criteria andNameIsNull() {
-            addCriterion("name is null");
+            addCriterion("`name` is null");
             return (Criteria) this;
         }
 
         public Criteria andNameIsNotNull() {
-            addCriterion("name is not null");
+            addCriterion("`name` is not null");
             return (Criteria) this;
         }
 
         public Criteria andNameEqualTo(String value) {
-            addCriterion("name =", value, "name");
+            addCriterion("`name` =", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameNotEqualTo(String value) {
-            addCriterion("name <>", value, "name");
+            addCriterion("`name` <>", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameGreaterThan(String value) {
-            addCriterion("name >", value, "name");
+            addCriterion("`name` >", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameGreaterThanOrEqualTo(String value) {
-            addCriterion("name >=", value, "name");
+            addCriterion("`name` >=", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameLessThan(String value) {
-            addCriterion("name <", value, "name");
+            addCriterion("`name` <", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameLessThanOrEqualTo(String value) {
-            addCriterion("name <=", value, "name");
+            addCriterion("`name` <=", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameLike(String value) {
-            addCriterion("name like", value, "name");
+            addCriterion("`name` like", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameNotLike(String value) {
-            addCriterion("name not like", value, "name");
+            addCriterion("`name` not like", value, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameIn(List<String> values) {
-            addCriterion("name in", values, "name");
+            addCriterion("`name` in", values, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameNotIn(List<String> values) {
-            addCriterion("name not in", values, "name");
+            addCriterion("`name` not in", values, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameBetween(String value1, String value2) {
-            addCriterion("name between", value1, value2, "name");
+            addCriterion("`name` between", value1, value2, "name");
             return (Criteria) this;
         }
 
         public Criteria andNameNotBetween(String value1, String value2) {
-            addCriterion("name not between", value1, value2, "name");
+            addCriterion("`name` not between", value1, value2, "name");
             return (Criteria) this;
         }
 
@@ -374,52 +381,52 @@ public class ProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andCostpriceEqualTo(Float value) {
+        public Criteria andCostpriceEqualTo(Double value) {
             addCriterion("costPrice =", value, "costprice");
             return (Criteria) this;
         }
 
-        public Criteria andCostpriceNotEqualTo(Float value) {
+        public Criteria andCostpriceNotEqualTo(Double value) {
             addCriterion("costPrice <>", value, "costprice");
             return (Criteria) this;
         }
 
-        public Criteria andCostpriceGreaterThan(Float value) {
+        public Criteria andCostpriceGreaterThan(Double value) {
             addCriterion("costPrice >", value, "costprice");
             return (Criteria) this;
         }
 
-        public Criteria andCostpriceGreaterThanOrEqualTo(Float value) {
+        public Criteria andCostpriceGreaterThanOrEqualTo(Double value) {
             addCriterion("costPrice >=", value, "costprice");
             return (Criteria) this;
         }
 
-        public Criteria andCostpriceLessThan(Float value) {
+        public Criteria andCostpriceLessThan(Double value) {
             addCriterion("costPrice <", value, "costprice");
             return (Criteria) this;
         }
 
-        public Criteria andCostpriceLessThanOrEqualTo(Float value) {
+        public Criteria andCostpriceLessThanOrEqualTo(Double value) {
             addCriterion("costPrice <=", value, "costprice");
             return (Criteria) this;
         }
 
-        public Criteria andCostpriceIn(List<Float> values) {
+        public Criteria andCostpriceIn(List<Double> values) {
             addCriterion("costPrice in", values, "costprice");
             return (Criteria) this;
         }
 
-        public Criteria andCostpriceNotIn(List<Float> values) {
+        public Criteria andCostpriceNotIn(List<Double> values) {
             addCriterion("costPrice not in", values, "costprice");
             return (Criteria) this;
         }
 
-        public Criteria andCostpriceBetween(Float value1, Float value2) {
+        public Criteria andCostpriceBetween(Double value1, Double value2) {
             addCriterion("costPrice between", value1, value2, "costprice");
             return (Criteria) this;
         }
 
-        public Criteria andCostpriceNotBetween(Float value1, Float value2) {
+        public Criteria andCostpriceNotBetween(Double value1, Double value2) {
             addCriterion("costPrice not between", value1, value2, "costprice");
             return (Criteria) this;
         }
@@ -434,113 +441,53 @@ public class ProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andSellingpriceEqualTo(Float value) {
+        public Criteria andSellingpriceEqualTo(Double value) {
             addCriterion("sellingPrice =", value, "sellingprice");
             return (Criteria) this;
         }
 
-        public Criteria andSellingpriceNotEqualTo(Float value) {
+        public Criteria andSellingpriceNotEqualTo(Double value) {
             addCriterion("sellingPrice <>", value, "sellingprice");
             return (Criteria) this;
         }
 
-        public Criteria andSellingpriceGreaterThan(Float value) {
+        public Criteria andSellingpriceGreaterThan(Double value) {
             addCriterion("sellingPrice >", value, "sellingprice");
             return (Criteria) this;
         }
 
-        public Criteria andSellingpriceGreaterThanOrEqualTo(Float value) {
+        public Criteria andSellingpriceGreaterThanOrEqualTo(Double value) {
             addCriterion("sellingPrice >=", value, "sellingprice");
             return (Criteria) this;
         }
 
-        public Criteria andSellingpriceLessThan(Float value) {
+        public Criteria andSellingpriceLessThan(Double value) {
             addCriterion("sellingPrice <", value, "sellingprice");
             return (Criteria) this;
         }
 
-        public Criteria andSellingpriceLessThanOrEqualTo(Float value) {
+        public Criteria andSellingpriceLessThanOrEqualTo(Double value) {
             addCriterion("sellingPrice <=", value, "sellingprice");
             return (Criteria) this;
         }
 
-        public Criteria andSellingpriceIn(List<Float> values) {
+        public Criteria andSellingpriceIn(List<Double> values) {
             addCriterion("sellingPrice in", values, "sellingprice");
             return (Criteria) this;
         }
 
-        public Criteria andSellingpriceNotIn(List<Float> values) {
+        public Criteria andSellingpriceNotIn(List<Double> values) {
             addCriterion("sellingPrice not in", values, "sellingprice");
             return (Criteria) this;
         }
 
-        public Criteria andSellingpriceBetween(Float value1, Float value2) {
+        public Criteria andSellingpriceBetween(Double value1, Double value2) {
             addCriterion("sellingPrice between", value1, value2, "sellingprice");
             return (Criteria) this;
         }
 
-        public Criteria andSellingpriceNotBetween(Float value1, Float value2) {
+        public Criteria andSellingpriceNotBetween(Double value1, Double value2) {
             addCriterion("sellingPrice not between", value1, value2, "sellingprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarketpriceIsNull() {
-            addCriterion("marketPrice is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarketpriceIsNotNull() {
-            addCriterion("marketPrice is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarketpriceEqualTo(Float value) {
-            addCriterion("marketPrice =", value, "marketprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarketpriceNotEqualTo(Float value) {
-            addCriterion("marketPrice <>", value, "marketprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarketpriceGreaterThan(Float value) {
-            addCriterion("marketPrice >", value, "marketprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarketpriceGreaterThanOrEqualTo(Float value) {
-            addCriterion("marketPrice >=", value, "marketprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarketpriceLessThan(Float value) {
-            addCriterion("marketPrice <", value, "marketprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarketpriceLessThanOrEqualTo(Float value) {
-            addCriterion("marketPrice <=", value, "marketprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarketpriceIn(List<Float> values) {
-            addCriterion("marketPrice in", values, "marketprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarketpriceNotIn(List<Float> values) {
-            addCriterion("marketPrice not in", values, "marketprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarketpriceBetween(Float value1, Float value2) {
-            addCriterion("marketPrice between", value1, value2, "marketprice");
-            return (Criteria) this;
-        }
-
-        public Criteria andMarketpriceNotBetween(Float value1, Float value2) {
-            addCriterion("marketPrice not between", value1, value2, "marketprice");
             return (Criteria) this;
         }
 
@@ -611,6 +558,76 @@ public class ProductExample {
 
         public Criteria andDescribtionNotBetween(String value1, String value2) {
             addCriterion("describtion not between", value1, value2, "describtion");
+            return (Criteria) this;
+        }
+
+        public Criteria andStockIsNull() {
+            addCriterion("stock is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStockIsNotNull() {
+            addCriterion("stock is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStockEqualTo(String value) {
+            addCriterion("stock =", value, "stock");
+            return (Criteria) this;
+        }
+
+        public Criteria andStockNotEqualTo(String value) {
+            addCriterion("stock <>", value, "stock");
+            return (Criteria) this;
+        }
+
+        public Criteria andStockGreaterThan(String value) {
+            addCriterion("stock >", value, "stock");
+            return (Criteria) this;
+        }
+
+        public Criteria andStockGreaterThanOrEqualTo(String value) {
+            addCriterion("stock >=", value, "stock");
+            return (Criteria) this;
+        }
+
+        public Criteria andStockLessThan(String value) {
+            addCriterion("stock <", value, "stock");
+            return (Criteria) this;
+        }
+
+        public Criteria andStockLessThanOrEqualTo(String value) {
+            addCriterion("stock <=", value, "stock");
+            return (Criteria) this;
+        }
+
+        public Criteria andStockLike(String value) {
+            addCriterion("stock like", value, "stock");
+            return (Criteria) this;
+        }
+
+        public Criteria andStockNotLike(String value) {
+            addCriterion("stock not like", value, "stock");
+            return (Criteria) this;
+        }
+
+        public Criteria andStockIn(List<String> values) {
+            addCriterion("stock in", values, "stock");
+            return (Criteria) this;
+        }
+
+        public Criteria andStockNotIn(List<String> values) {
+            addCriterion("stock not in", values, "stock");
+            return (Criteria) this;
+        }
+
+        public Criteria andStockBetween(String value1, String value2) {
+            addCriterion("stock between", value1, value2, "stock");
+            return (Criteria) this;
+        }
+
+        public Criteria andStockNotBetween(String value1, String value2) {
+            addCriterion("stock not between", value1, value2, "stock");
             return (Criteria) this;
         }
     }

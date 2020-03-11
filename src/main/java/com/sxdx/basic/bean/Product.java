@@ -1,5 +1,19 @@
 package com.sxdx.basic.bean;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+/**
+ * @Program: crm
+ * @since: JDK 1.8
+ * @Description:
+ * @author: Likyeong
+ * @date: 2020/3/4 15:24
+ **/
+@Getter
+@Setter
+@ToString
 public class Product {
     private Integer id;
 
@@ -9,75 +23,11 @@ public class Product {
 
     private String category;
 
-    private Float costprice;
+    private Double costprice;
 
-    private Float sellingprice;
-
-    private Float marketprice;
+    private Double sellingprice;
 
     private String describtion;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getParentid() {
-        return parentid;
-    }
-
-    public void setParentid(Integer parentid) {
-        this.parentid = parentid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category == null ? null : category.trim();
-    }
-
-    public Float getCostprice() {
-        return costprice;
-    }
-
-    public void setCostprice(Float costprice) {
-        this.costprice = costprice;
-    }
-
-    public Float getSellingprice() {
-        return sellingprice;
-    }
-
-    public void setSellingprice(Float sellingprice) {
-        this.sellingprice = sellingprice;
-    }
-
-    public Float getMarketprice() {
-        return marketprice;
-    }
-
-    public void setMarketprice(Float marketprice) {
-        this.marketprice = marketprice;
-    }
-
-    public String getDescribtion() {
-        return describtion;
-    }
-
-    public void setDescribtion(String describtion) {
-        this.describtion = describtion == null ? null : describtion.trim();
-    }
+    private String stock;
 }

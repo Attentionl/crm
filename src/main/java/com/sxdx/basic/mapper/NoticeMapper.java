@@ -5,6 +5,13 @@ import com.sxdx.basic.bean.NoticeExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * @Program: crm
+ * @since: JDK 1.8
+ * @Description:
+ * @author: Likyeong
+ * @date: 2020/2/22 11:32
+ **/
 public interface NoticeMapper {
     long countByExample(NoticeExample example);
 

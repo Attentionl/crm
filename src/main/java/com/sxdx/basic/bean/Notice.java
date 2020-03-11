@@ -1,7 +1,20 @@
 package com.sxdx.basic.bean;
 
 import java.util.Date;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+/**
+ * @Program: crm
+ * @since: JDK 1.8
+ * @Description:
+ * @author: Likyeong
+ * @date: 2020/2/22 11:32
+ **/
+@Getter
+@Setter
+@ToString
 public class Notice {
     private Integer id;
 
@@ -17,59 +30,5 @@ public class Notice {
 
     private Integer publisherid;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public Integer getTimes() {
-        return times;
-    }
-
-    public void setTimes(Integer times) {
-        this.times = times;
-    }
-
-    public Date getPublishtime() {
-        return publishtime;
-    }
-
-    public void setPublishtime(Date publishtime) {
-        this.publishtime = publishtime;
-    }
-
-    public Date getOuttime() {
-        return outtime;
-    }
-
-    public void setOuttime(Date outtime) {
-        this.outtime = outtime;
-    }
-
-    public Integer getPublisherid() {
-        return publisherid;
-    }
-
-    public void setPublisherid(Integer publisherid) {
-        this.publisherid = publisherid;
-    }
+    private String status;
 }
