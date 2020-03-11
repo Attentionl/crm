@@ -21,7 +21,7 @@ import java.util.List;
 @Validated
 @RestController
 @RequestMapping("/receivables")
-public class receivablesController {
+public class ReceivablesController {
 
     @Autowired
     private ReceivablesService ReceivablesService;
