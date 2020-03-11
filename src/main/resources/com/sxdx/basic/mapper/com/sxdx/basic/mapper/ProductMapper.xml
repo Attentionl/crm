@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxdx.basic.mapper.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.sxdx.basic.bean.Product">
+    <!--@mbg.generated-->
+    <!--@Table product-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="parentId" jdbcType="INTEGER" property="parentid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="category" jdbcType="VARCHAR" property="category" />
+    <result column="costPrice" jdbcType="FLOAT" property="costprice" />
+    <result column="sellingPrice" jdbcType="FLOAT" property="sellingprice" />
+    <result column="describtion" jdbcType="VARCHAR" property="describtion" />
+    <result column="stock" jdbcType="VARCHAR" property="stock" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, parentId, `name`, category, costPrice, sellingPrice, describtion, stock
+  </sql>
+  <select id="selectByExample" parameterType="com.sxdx.basic.bean.ProductExample" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from product
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from product
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sxdx.basic.bean.ProductExample">
+    <!--@mbg.generated-->
+    delete from product
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sxdx.basic.bean.Product">
+    <!--@mbg.generated-->
+    insert into product (id, parentId, `name`, 
+      category, costPrice, sellingPrice, 
+      describtion, stock)
+    values (#{id,jdbcType=INTEGER}, #{parentid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{category,jdbcType=VARCHAR}, #{costprice,jdbcType=FLOAT}, #{sellingprice,jdbcType=FLOAT}, 
+      #{describtion,jdbcType=VARCHAR}, #{stock,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sxdx.basic.bean.Product">
+    <!--@mbg.generated-->
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="parentid != null">
+        parentId,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="costprice != null">
+        costPrice,
+      </if>
+      <if test="sellingprice != null">
+        sellingPrice,
+      </if>
+      <if test="describtion != null">
+        describtion,
+      </if>
+      <if test="stock != null">
+        stock,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="costprice != null">
+        #{costprice,jdbcType=FLOAT},
+      </if>
+      <if test="sellingprice != null">
+        #{sellingprice,jdbcType=FLOAT},
+      </if>
+      <if test="describtion != null">
+        #{describtion,jdbcType=VARCHAR},
+      </if>
+      <if test="stock != null">
+        #{stock,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sxdx.basic.bean.ProductExample" resultType="java.lang.Long">
+    <!--@mbg.generated-->
+    select count(*) from product
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbg.generated-->
+    update product
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.parentid != null">
+        parentId = #{record.parentid,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null">
+        `name` = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.category != null">
+        category = #{record.category,jdbcType=VARCHAR},
+      </if>
+      <if test="record.costprice != null">
+        costPrice = #{record.costprice,jdbcType=FLOAT},
+      </if>
+      <if test="record.sellingprice != null">
+        sellingPrice = #{record.sellingprice,jdbcType=FLOAT},
+      </if>
+      <if test="record.describtion != null">
+        describtion = #{record.describtion,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stock != null">
+        stock = #{record.stock,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbg.generated-->
+    update product
+    set id = #{record.id,jdbcType=INTEGER},
+      parentId = #{record.parentid,jdbcType=INTEGER},
+      `name` = #{record.name,jdbcType=VARCHAR},
+      category = #{record.category,jdbcType=VARCHAR},
+      costPrice = #{record.costprice,jdbcType=FLOAT},
+      sellingPrice = #{record.sellingprice,jdbcType=FLOAT},
+      describtion = #{record.describtion,jdbcType=VARCHAR},
+      stock = #{record.stock,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sxdx.basic.bean.Product">
+    <!--@mbg.generated-->
+    update product
+    <set>
+      <if test="parentid != null">
+        parentId = #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="costprice != null">
+        costPrice = #{costprice,jdbcType=FLOAT},
+      </if>
+      <if test="sellingprice != null">
+        sellingPrice = #{sellingprice,jdbcType=FLOAT},
+      </if>
+      <if test="describtion != null">
+        describtion = #{describtion,jdbcType=VARCHAR},
+      </if>
+      <if test="stock != null">
+        stock = #{stock,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sxdx.basic.bean.Product">
+    <!--@mbg.generated-->
+    update product
+    set parentId = #{parentid,jdbcType=INTEGER},
+      `name` = #{name,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      costPrice = #{costprice,jdbcType=FLOAT},
+      sellingPrice = #{sellingprice,jdbcType=FLOAT},
+      describtion = #{describtion,jdbcType=VARCHAR},
+      stock = #{stock,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
