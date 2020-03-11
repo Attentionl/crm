@@ -6,8 +6,7 @@ import com.sxdx.basic.utils.Message;
 import com.sxdx.customer.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,7 +31,7 @@ public class CustomerController {
     *@date: 2020/2/14
     *@author: 毕必成
     */
-    @RequestMapping("addCustomer")
+    @PostMapping("addCustomer")
     public Message addConsumer(Customer consumer){
         int i = customerService.addCustomer(consumer);
         if(i != 0){
@@ -49,7 +48,7 @@ public class CustomerController {
     *@date: 2020/2/14
     *@author: 毕必成
     */
-    @RequestMapping("delteCustomerById")
+    @DeleteMapping("delteCustomerById")
     public Message deleteConsumer(Integer integer){
         int i = customerService.deleteCustomer(integer);
         if(i != 0){
@@ -66,7 +65,7 @@ public class CustomerController {
     *@date: 2020/2/14
     *@author: 毕必成
     */
-    @RequestMapping("updateCustomer")
+    @PutMapping("updateCustomer")
     public Message updateCustomer(Customer customer){
        int i = customerService.updateCustomer(customer);
 
@@ -85,7 +84,7 @@ public class CustomerController {
     *@date: 2020/2/14
     *@author: 毕必成
     */
-    @RequestMapping("selectAllCustomer")
+    @GetMapping("selectAllCustomer")
     public Message selectAllCustomer(){
         List<Customer> customers = customerService.selectAllCustomer();
         if( customers != null){
@@ -103,13 +102,23 @@ public class CustomerController {
     *@date: 2020/2/16
     *@author: 毕必成
     */
-    @RequestMapping("selectCustomerById")
+    @GetMapping("selectCustomerById")
     public Message selectCustomerById(Integer integer){
         Customer customer = customerService.selcteByCusId(integer);
         if (customer != null){
             return MessageUtil.success("存在该客户","status",1);
         }else{
-            return MessageUtil.success("不存在该客户","status",1);
+            return MessageUtil.success("不存在该客户","status",0);
+        }
+    }
+
+    @GetMapping ("selectCusByName/login")
+    public Message selectCusByName(String username){
+        List<Customer> customers = customerService.selectByCusName(username);
+        if(customers != null){
+            return MessageUtil.success("存在该客户","status",1);
+        }else{
+            return MessageUtil.success("不存在该客户","status",0);
         }
     }
 

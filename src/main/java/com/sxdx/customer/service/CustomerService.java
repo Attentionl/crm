@@ -61,5 +61,15 @@ public interface CustomerService {
     *@author: 毕必成
     */
     Customer selcteByCusId(Integer integer);
+    
+    /*
+    *@param: [username]
+    *@name: selectByCusName
+    *@description: 通过username查询客户
+    *@retrun: com.sxdx.basic.bean.Customer
+    *@date: 2020/2/18 
+    *@author: 毕必成
+    */
+    List<Customer> selectByCusName(String username);
 
 }

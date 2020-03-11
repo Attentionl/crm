@@ -89,4 +89,12 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer selcteByCusId(Integer integer) {
         return customerMapper.selectByPrimaryKey(integer);
     }
+
+    @Override
+    public List<Customer> selectByCusName(String username) {
+        CustomerExample example = new CustomerExample();
+        example.createCriteria().andNameEqualTo(username);
+
+        return  customerMapper.selectByExample(example);
+    }
 }

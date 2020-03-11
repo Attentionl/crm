@@ -6,8 +6,7 @@ import com.sxdx.basic.utils.Message;
 import com.sxdx.basic.utils.MessageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class FollowController {
      *@date: 2020/2/14
      *@author: 毕必成
      */
-    @RequestMapping("addFollow")
+    @PostMapping("addFollow")
     public Message addConsumer(Follow follow){
         int i = followService.addFollower(follow);
         if(i != 0){
@@ -48,7 +47,7 @@ public class FollowController {
      *@date: 2020/2/14
      *@author: 毕必成
      */
-    @RequestMapping("delteFollowById")
+    @DeleteMapping("delteFollowById")
     public Message deleteFollow(Integer integer){
         int i = followService.deleteFollower(integer);
         if(i != 0){
@@ -65,7 +64,7 @@ public class FollowController {
      *@date: 2020/2/14
      *@author: 毕必成
      */
-    @RequestMapping("updateFollow")
+    @PutMapping("updateFollow")
     public Message updateFollow(Follow follow){
         int i = followService.updateFollower(follow);
 
@@ -84,7 +83,7 @@ public class FollowController {
      *@date: 2020/2/14
      *@author: 毕必成
      */
-    @RequestMapping("selectAllFollow")
+    @GetMapping("selectAllFollow")
     public Message selectAllFollow(){
         List<Follow> follows = followService.selectAllFoller();
         if( follows != null){
@@ -101,7 +100,7 @@ public class FollowController {
     *@date: 2020/2/16
     *@author: 毕必成
     */
-    @RequestMapping("selectFollowById")
+    @GetMapping("selectFollowById")
     public Message selectFollowById(Integer integer){
         Follow  follow  = followService.selectFollowById(integer);
         if (follow != null){
