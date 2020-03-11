@@ -6,8 +6,7 @@ import com.sxdx.basic.utils.Message;
 import com.sxdx.basic.utils.MessageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,7 +31,7 @@ public class CusGradeController {
      *@date: 2020/2/14
      *@author: 毕必成
      */
-    @RequestMapping("addCusGrad")
+    @PostMapping("addCusGrad")
     public Message addConsumer(CusGrade cusGrade){
         int i = cusGradService.addCusGrade(cusGrade);
         if(i != 0){
@@ -49,7 +48,7 @@ public class CusGradeController {
      *@date: 2020/2/14
      *@author: 毕必成
      */
-    @RequestMapping("delteCustomerById")
+    @DeleteMapping("delteCustomerById")
     public Message deleteCusGrad(Integer integer){
         int i = cusGradService.deleteCusGrade(integer);
         if(i != 0){
@@ -66,7 +65,7 @@ public class CusGradeController {
      *@date: 2020/2/14
      *@author: 毕必成
      */
-    @RequestMapping("updateCustomer")
+    @PutMapping("updateCustomer")
     public Message updateCusGrad(CusGrade cusGrad){
         int i = cusGradService.updateCusGrade(cusGrad);
 
@@ -85,7 +84,7 @@ public class CusGradeController {
      *@date: 2020/2/14
      *@author: 毕必成
      */
-    @RequestMapping("selectAllCustomer")
+    @GetMapping("selectAllCustomer")
     public Message selectAllCusGrad(){
         List<CusGrade> cusGrades = cusGradService.selectAllCusGrade();
         if( cusGrades != null){
@@ -103,7 +102,7 @@ public class CusGradeController {
     *@date: 2020/2/16
     *@author: 毕必成
     */
-    @RequestMapping("selectCusGradById")
+    @GetMapping("selectCusGradById")
     public Message selectCusGradById(Integer integer){
           CusGrade cusGrade  = cusGradService.selectCusGradeById(integer);
         if (cusGrade != null){
