@@ -1,5 +1,8 @@
 package com.sxdx.basic.utils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author 李今朝
  * @className MessageUtil
@@ -88,4 +91,15 @@ public class MessageUtil {
         message.setTimestamp(System.currentTimeMillis());
         return message;
     }
+
+    public static Message success(Object data){
+        Message message = new Message();
+        message.setCode(200);
+        message.setMessage("success");
+        HashMap map = (HashMap) data;
+        message.setMap(map);
+//        message.setTimestamp(new Date().getTime());
+        return message;
+    }
+
 }

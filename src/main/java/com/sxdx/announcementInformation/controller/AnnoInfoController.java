@@ -6,6 +6,7 @@ import com.sxdx.basic.bean.Receipt;
 import com.sxdx.basic.utils.Message;
 import com.sxdx.basic.utils.MessageUtil;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
